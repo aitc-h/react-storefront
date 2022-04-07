@@ -81,7 +81,10 @@ export default function Products() {
   ];
 
   let filteredProducts = useMemo(
-    products.filter(({ skus }) => skus.find((s) => s.size === parseInt(size))),
+    () =>
+      products.filter(({ skus }) =>
+        skus.find((s) => s.size === parseInt(size))
+      ),
     [size]
   );
 
