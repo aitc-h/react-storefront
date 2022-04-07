@@ -20,8 +20,7 @@ function App() {
                 <h1>Welcome</h1>
                 <button
                   onClick={() =>
-                    writeProductData({
-                      id: 1,
+                    writeProductData(1, {
                       category: "shoes",
                       image: "shoe1.jpg",
                       name: "Hiker",

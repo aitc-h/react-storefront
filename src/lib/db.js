@@ -19,8 +19,7 @@ const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 
-export function writeProductData(product) {
-  const { id } = product;
+export function writeProductData(id, product) {
   set(ref(database, `products/${id}`), product);
 }
 
