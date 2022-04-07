@@ -4,8 +4,7 @@ import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
 import Detail from "./components/Detail";
-import { writeProductData } from "./lib/db";
-import { readProductData } from "./lib/db";
+import { writeProductData, getProductByID, getSkusByProductID } from "./lib/db";
 
 function App() {
   return (
@@ -43,7 +42,7 @@ function App() {
                 >
                   Write
                 </button>
-                <button onClick={() => readProductData(0)}>Log</button>
+                <button onClick={() => getProductByID(0)}>Log</button>
                 <button onClick={() => getSkusByProductID(1)}>SKUs</button>
               </>
             }
