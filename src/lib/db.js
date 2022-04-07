@@ -1,53 +1,25 @@
-import React from "react";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set } from "firebase/database";
 
-const queryClient = new QueryClient();
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
-
-const fetcher = async (url) => {
-  const response = await fetch(BASE_URL + url);
-  if (response.ok) return response.json();
-  throw response;
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBylX7hUCnuScPwpEagh2ML2JX00iwCHls",
+  authDomain: "react-storefront-360a4.firebaseapp.com",
+  databaseURL:
+    "https://react-storefront-360a4-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "react-storefront-360a4",
+  storageBucket: "react-storefront-360a4.appspot.com",
+  messagingSenderId: "1057642846923",
+  appId: "1:1057642846923:web:c85c52c3f62d46d293994e",
 };
 
-export default function QC(props) {
-  return (
-    <QueryClientProvider client={queryClient}>
-      {props.children}
-    </QueryClientProvider>
-  );
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const database = getDatabase(app);
+
+export function writeProductData(product) {
+  const { id } = product;
+  set(ref(db, `products/${id}`), product);
 }
-
-export function useProduct(id) {
-  const { isLoading, error, data } = useQuery(["product", { id }], () =>
-    fetcher(`/products/${id}`)
-  );
-
-  return {
-    product: data,
-    isLoading: !error && !data,
-    isError: error,
-  };
-}
-
-// function Example() {
-//   const { isLoading, error, data } = useQuery("repoData", () =>
-//     fetch("https://api.github.com/repos/tannerlinsley/react-query").then(
-//       (res) => res.json()
-//     )
-//   );
-
-//   if (isLoading) return "Loading...";
-
-//   if (error) return "An error has occurred: " + error.message;
-
-//   return (
-//     <div>
-//       <h1>{data.name}</h1>
-//       <p>{data.description}</p>
-//       <strong>👀 {data.subscribers_count}</strong>{" "}
-//       <strong>✨ {data.stargazers_count}</strong>{" "}
-//       <strong>🍴 {data.forks_count}</strong>
-//     </div>
-//   );
-// }
