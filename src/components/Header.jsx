@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+// import { Link, NavLink } from 'react-router-dom';
 // import { useCart } from '../state/cartContext';
 
 const activeStyle = {
@@ -15,13 +15,13 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <Link to="/">
+            {/* <Link to="/"> */}
               <img
                 alt="Carved Rock Fitness"
                 src="/images/logo.png"
               />
               Carved Rock Fitness
-            </Link>
+            {/* </Link> */}
           </li>
           <li>
             {/* <NavLink style={activeStyleFunc} to="/shoes"> */}
