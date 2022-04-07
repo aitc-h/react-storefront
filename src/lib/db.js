@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, get } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -25,8 +25,10 @@ export function writeProductData(id, product) {
 
 export function readProductData(id) {
   const productRef = ref(database, `products/${id}`);
-  onValue(productRef, (snapshot) => {
-    const data = snapshot.val();
-    console.log(data);
-  });
+  get(productRef)
+    .then((snapshot) => {
+      const data = snapshot.exists() ? snapshot.val() : "No data available";
+      console.log(data);
+    })
+    .catch((error) => console.error(error));
 }
