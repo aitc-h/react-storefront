@@ -1,44 +1,22 @@
-import React from 'react';
-// import { Link, NavLink } from 'react-router-dom';
-// import { useCart } from '../state/cartContext';
+import React from "react";
 
 const activeStyle = {
-  color: 'purple',
+  color: "purple",
 };
 
 const activeStyleFunc = ({ isActive }) => (isActive ? activeStyle : {});
 
 export default function Header() {
-//   const { numItemsInCart } = useCart();
   return (
     <header>
       <nav>
         <ul>
           <li>
-            {/* <Link to="/"> */}
-              <img
-                alt="Carved Rock Fitness"
-                src="/images/logo.png"
-              />
-              Carved Rock Fitness
-            {/* </Link> */}
+            <img alt="Carved Rock Fitness" src="/static/media/logo.png" />
           </li>
-          <li>
-            {/* <NavLink style={activeStyleFunc} to="/shoes"> */}
-              Shoes
-            {/* </NavLink> */}
-          </li>
-          <li>
-            {/* <NavLink style={activeStyleFunc} to="/backpacks"> */}
-              Backpacks
-            {/* </NavLink> */}
-          </li>
-          <li>
-            {/* <NavLink style={activeStyleFunc} to="/cart"> */}
-              {/* Cart{numItemsInCart > 0 ? ` (${numItemsInCart})` : null} */}
-            {/* </NavLink> */}
-            Cart
-          </li>
+          <li>Shoes</li>
+          <li>Backpacks</li>
+          <li>Cart</li>
         </ul>
       </nav>
     </header>
