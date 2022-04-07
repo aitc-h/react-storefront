@@ -43,7 +43,7 @@ function App() {
                 >
                   Write
                 </button>
-                <button onClick={readProductData}>Log</button>
+                <button onClick={() => readProductData(0)}>Log</button>
               </>
             }
           />
