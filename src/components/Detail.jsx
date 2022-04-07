@@ -39,19 +39,16 @@ export default function Detail() {
       <p>
         <button
           className="btn btn-primary"
-          onClick={() => {
-            dispatch({ type: "add", id, sku });
-            navigate("/cart");
-          }}
+          //   onClick={() => {
+          //     dispatch({ type: "add", id, sku });
+          //     navigate("/cart");
+          //   }}
           disabled={!sku}
         >
           Add to cart
         </button>
       </p>
-      <img
-        src={`https://github.com/aitc-h/RMS-10/raw/master/public/images/${image}`}
-        alt={category}
-      />
+      <img src={`/static/media/${image}`} alt={category} />
     </div>
   );
 }
