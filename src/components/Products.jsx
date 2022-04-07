@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import '../styles/Products.scss'
+
 import { toTitleCase } from "../lib/string";
 
 function ListProduct({ id, category, image, name, price }) {
