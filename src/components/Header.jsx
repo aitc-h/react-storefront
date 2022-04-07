@@ -1,11 +1,11 @@
 import React from "react";
-import "../styles/Header.css";
+import "../styles/Header.scss";
 
-const activeStyle = {
-  color: "purple",
-};
+// const activeStyle = {
+//   color: "purple",
+// };
 
-const activeStyleFunc = ({ isActive }) => (isActive ? activeStyle : {});
+// const activeStyleFunc = ({ isActive }) => (isActive ? activeStyle : {});
 
 export default function Header() {
   return (
