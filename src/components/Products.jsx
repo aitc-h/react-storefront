@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
-import '../styles/Products.scss'
+import "../styles/Products.scss";
 
 import { toTitleCase } from "../lib/string";
 
@@ -8,10 +8,7 @@ function ListProduct({ id, category, image, name, price }) {
   return (
     <div key={id} className="product">
       <Link to={`/${category}/${id}`}>
-        <img
-          src={`/static/media/${image}`}
-          alt={name}
-        />
+        <img src={`/static/media/${image}`} alt={name} />
         <h3>{name}</h3>
         <p>${price}</p>
       </Link>
@@ -83,6 +80,11 @@ export default function Products() {
     },
   ];
 
+  let filteredProducts = useMemo(
+    products.filter(({ skus }) => skus.find((s) => s.size === parseInt(size))),
+    [size]
+  );
+
   return (
     <section id={category}>
       <h1>{toTitleCase(category)}</h1>
@@ -99,11 +101,11 @@ export default function Products() {
           <option value="8">8</option>
           <option value="9">9</option>
         </select>
-        {size && <h2>Found {products.length} items</h2>}
+        {size && <h2>Found {filteredProducts.length} items</h2>}
       </section>
 
       <section id="products">
-        {products.map((p) => (
+        {filteredProducts.map((p) => (
           <ListProduct {...p} />
         ))}
       </section>
