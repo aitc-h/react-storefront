@@ -23,12 +23,19 @@ export function writeProductData(id, product) {
   set(ref(database, `products/${id}`), product);
 }
 
-export function readProductData(id) {
+export function getProductByID(id) {
   const productRef = ref(database, `products/${id}`);
-  get(productRef)
+  const product = get(productRef)
     .then((snapshot) => {
       const data = snapshot.exists() ? snapshot.val() : "No data available";
-      console.log(data);
+      return data;
     })
     .catch((error) => console.error(error));
+  return product;
+}
+
+export function getSkusByProductID(productID) {
+  const skusRef = ref(database, `skus`);
+  const skus = get(skusRef).then((snapshot) => snapshot.exists() ? snapshot.val() : "No data available").catch((error) => console.error(error))
+  return skus;
 }

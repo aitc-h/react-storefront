@@ -44,6 +44,7 @@ function App() {
                   Write
                 </button>
                 <button onClick={() => readProductData(0)}>Log</button>
+                <button onClick={() => getSkusByProductID(1)}>SKUs</button>
               </>
             }
           />
