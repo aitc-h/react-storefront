@@ -2,6 +2,13 @@ import React from "react";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 
 const queryClient = new QueryClient();
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+const fetcher = async (url) => {
+  const response = await fetch(BASE_URL + url);
+  if (response.ok) return response.json();
+  throw response;
+};
 
 export default function QC(props) {
   return (
@@ -13,7 +20,7 @@ export default function QC(props) {
 
 export function useProduct(id) {
   const { isLoading, error, data } = useQuery(["product", { id }], () =>
-    fetch(`/products/${id}`).then((res) => res.json())
+    fetcher(`/products/${id}`)
   );
 
   return {
