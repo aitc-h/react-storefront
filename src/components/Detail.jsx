@@ -10,8 +10,10 @@ export default function Detail() {
 
   const { isLoading, isError, product } = useProduct(id);
 
-  if (isLoading) return <Spinner />;
-  if (isError) return <PageNotFound />;
+  //   if (isLoading) return <Spinner />;
+  //   if (isError) return <PageNotFound />;
+  if (isLoading) return <h3>Loading...</h3>;
+  if (isError) return <h3>Error!</h3>;
 
   const { name, description, price, skus, image } = product;
 
