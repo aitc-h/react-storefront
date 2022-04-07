@@ -19,7 +19,7 @@ export default function Header() {
             <Link to="/">
               <img
                 alt="Carved Rock Fitness"
-                src={Logo}
+                src={logo}
               />
             </Link>
           </li>
