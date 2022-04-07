@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Products from "./components/Products";
 import Detail from "./components/Detail";
 import { writeProductData } from "./lib/db";
+import { readProductData } from "./lib/db";
 
 function App() {
   return (
@@ -39,9 +40,11 @@ function App() {
                         "This rugged boot will get you up the mountain safely.",
                     })
                   }
+                  disabled={true}
                 >
-                  fb
+                  Write
                 </button>
+                <button onClick={readProductData}>Log</button>
               </>
             }
           />

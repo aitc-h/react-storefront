@@ -1,10 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBylX7hUCnuScPwpEagh2ML2JX00iwCHls",
+  apiKey: process.env.API_KEY,
   authDomain: "react-storefront-360a4.firebaseapp.com",
   databaseURL:
     "https://react-storefront-360a4-default-rtdb.europe-west1.firebasedatabase.app",
@@ -22,4 +22,12 @@ const database = getDatabase(app);
 export function writeProductData(product) {
   const { id } = product;
   set(ref(database, `products/${id}`), product);
+}
+
+export function readProductData(id) {
+  const productRef = ref(database, `products/${id}`);
+  onValue(productRef, (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+  });
 }
