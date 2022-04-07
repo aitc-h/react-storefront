@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from './logo.png'
 // import { useCart } from '../state/cartContext';
 
 const activeStyle = {
