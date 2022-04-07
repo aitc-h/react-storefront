@@ -1,0 +1,22 @@
+header {
+    display: flex;
+    padding-left: 20px;
+}
+
+header img {
+    max-height: 100px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+header ul {
+    padding-inline-start: 20px;
+}
+
+header li {
+    display: inline;
+    margin-right: 20px;
+}
