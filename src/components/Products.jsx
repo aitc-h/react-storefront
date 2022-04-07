@@ -2,8 +2,19 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { toTitleCase } from "../lib/string";
 
-function ListProduct() {
-  return <h1>Product</h1>;
+function ListProduct({ id, category, image, name, price }) {
+  return (
+    <div key={id} className="product">
+      <Link to={`/${category}/${id}`}>
+        <img
+          src={`/static/media/${image}`}
+          alt={name}
+        />
+        <h3>{name}</h3>
+        <p>${price}</p>
+      </Link>
+    </div>
+  );
 }
 
 export default function Products() {
