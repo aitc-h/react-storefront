@@ -21,5 +21,5 @@ const database = getDatabase(app);
 
 export function writeProductData(product) {
   const { id } = product;
-  set(ref(db, `products/${id}`), product);
+  set(ref(database, `products/${id}`), product);
 }
