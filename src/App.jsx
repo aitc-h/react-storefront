@@ -17,7 +17,31 @@ function App() {
             element={
               <>
                 <h1>Welcome</h1>
-                <button onClick={writeProductData}>fb</button>
+                <button
+                  onClick={() =>
+                    writeProductData({
+                      id: 1,
+                      category: "shoes",
+                      image: "shoe1.jpg",
+                      name: "Hiker",
+                      price: 94.95,
+                      skus: [
+                        {
+                          sku: "17",
+                          size: 7,
+                        },
+                        {
+                          sku: "18",
+                          size: 8,
+                        },
+                      ],
+                      description:
+                        "This rugged boot will get you up the mountain safely.",
+                    })
+                  }
+                >
+                  fb
+                </button>
               </>
             }
           />
