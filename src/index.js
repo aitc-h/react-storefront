@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import QC from "./lib/db";
+// import QC from "./lib/db";
 
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <QC>
+      {/* <QC> */}
         <App />
-      </QC>
+      {/* </QC> */}
     </React.StrictMode>
   </BrowserRouter>,
   document.getElementById("root")
