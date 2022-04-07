@@ -24,7 +24,7 @@ export function writeProductData(id, product) {
 }
 
 export function readProductData(id) {
-  const productRef = ref(database, `products/${id}`);
+  const productRef = ref(database, `products/${id - 1}`);
   get(productRef)
     .then((snapshot) => {
       const data = snapshot.exists() ? snapshot.val() : "No data available";
