@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { toTitleCase } from "../lib/string";
 
 function ListProduct() {
   return <h1>Product</h1>;
@@ -71,8 +72,7 @@ export default function Products() {
 
   return (
     <section id={category}>
-      {/* <h1>{toTitleCase(category)}</h1> */}
-      <h1>{category}</h1>
+      <h1>{toTitleCase(category)}</h1>
 
       <section id="filters">
         <label htmlFor="size">Filter by Size:</label>{" "}

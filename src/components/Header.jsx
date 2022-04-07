@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Header.scss";
 
 // const activeStyle = {
@@ -13,11 +14,15 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <img alt="Carved Rock Fitness" src="/static/media/logo.png" />
+            <Link to="/">
+              <img alt="Carved Rock Fitness" src="/static/media/logo.png" />
+            </Link>
           </li>
-          <li>Shoes</li>
-          <li>Backpacks</li>
-          <li>Cart</li>
+          <li>
+            <Link to="/shoes">Shoes</Link>
+          </li>
+          {/* <li>Backpacks</li> */}
+          {/* <li>Cart</li> */}
         </ul>
       </nav>
     </header>
